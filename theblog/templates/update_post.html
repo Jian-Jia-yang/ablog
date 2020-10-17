@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+ {% block title %}修改文章{% endblock title %}
+ {% block content %}
+
+
+{% if user.is_authenticated %}
+
+    <h1>修改文章</h1>
+    <br/><br/>
+
+
+    <div class="form-group">
+            <form method="POST">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button class="btn btn-secondary">修改</button>
+    </div>
+{% else %}
+    您沒有權限修改
+{% endif %}
+{% endblock %} 
